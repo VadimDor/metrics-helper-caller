@@ -1,0 +1,36 @@
+name: GitHub Metrics Helper
+on:
+  # Schedule at 00:00 on every 3rd day-of-month, https://crontab.guru/#0_0_*/3_*_*
+  #schedule: [{ cron: "0 0 */3 * *" }]
+  # (optional) Run workflow manually
+  workflow_dispatch:
+  # (optional) Run workflow when pushing on main
+  #push: { branches: ["main"] }
+jobs:
+  call-workflow-passing-data:
+    permissions:
+      contents: write
+      pull-requests: write
+    uses: VadimDor/metrics-helper/.github/workflows/metrics.yml@main
+    with:
+      plugin_introduction: yes
+    secrets:
+      token: ${{ secrets.METRICS_TOKEN }}
+  #github-metrics:
+    #runs-on: ubuntu-latest
+    #permissions:
+      #contents: write
+    #steps:
+      #- uses: VadimDor/metrics-helper@latest
+      #  with:
+      #    filename: github-metrics-myintro5.svg
+      #    token: ${{ secrets.token }}
+       #   user: vadimdor
+          # https://github.com/lowlighter/metrics/blob/master/source/plugins/core/README.md#using-gists
+          #output_action: gist
+          #committer_gist: efedf3c3dc5c472c3103caaa15db68a0
+         # committer_message: "chore($metrics): update GitHub metrics via GitHub Actions"
+          #template: classic
+          #config_timezone: Europe/Paris
+          #base: header, activity, community, repositories, metadata
+         # plugin_introduction: ${{ inputs.plugin_introduction }}
