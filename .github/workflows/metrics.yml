@@ -13,7 +13,7 @@ jobs:
       pull-requests: write
     uses: VadimDor/metrics-helper/.github/workflows/metrics.yml@main
     with:
-      plugin_introduction: yes
+      plugin_introduction: no
     secrets:
       token: ${{ secrets.METRICS_TOKEN }}
   #github-metrics:
