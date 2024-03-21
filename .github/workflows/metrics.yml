@@ -14,6 +14,7 @@ jobs:
     uses: VadimDor/metrics-helper/.github/workflows/metrics.yml@main
     with:
       plugin_introduction: no
+      plugin_achievements: yes
     secrets:
       token: ${{ secrets.METRICS_TOKEN }}
   #github-metrics:
